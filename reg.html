@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Registration Form</title>
+ <style>
+ form { max-width: 500px; margin: 20px; }
+ label { display: block; margin-top: 10px; }
+ input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+ button { background-color: #007bff; color: white; padding: 10px 20px; border: none; margin-top: 15px; }
+ </style>
+</head>
+<body>
+ <h1>User Registration</h1>
+
+ <form action="/register" method="POST" enctype="multipart/form-data">
+ <!-- Personal Information -->
+ <fieldset>
+ <legend>Personal Information</legend>
+
+ <label for="fullname">Full Name:</label>
+ <input type="text" id="fullname" name="fullname" required>
+
+ <label for="email">Email Address:</label>
+ <input type="email" id="email" name="email" required>
+
+ <label for="phone">Phone Number:</label>
+ <input type="tel" id="phone" name="phone">
+
+ <label for="birthdate">Date of Birth:</label>
+ <input type="date" id="birthdate" name="birthdate">
+
+ <label>Gender:</label>
+ <input type="radio" id="male" name="gender" value="male">
+ <label for="male">Male</label>
+
+ <input type="radio" id="female" name="gender" value="female">
+ <label for="female">Female</label>
+
+ <input type="radio" id="other" name="gender" value="other">
+ <label for="other">Other</label>
+ </fieldset>
+<fieldset>
+ <legend>Account Information</legend>
+
+ <label for="username">Username:</label>
+ <input type="text" id="username" name="username"
+ required minlength="3" maxlength="20">
+
+ <label for="password">Password:</label>
+ <input type="password" id="password" name="password"
+ required minlength="6">
+
+ <label for="confirm-password">Confirm Password:</label>
+ <input type="password" id="confirm-password" name="confirm-password" required>
+
+ <label for="country">Country:</label>
+ <select id="country" name="country" required>
+ <option value="">Select your country</option>
+ <option value="us">United States</option>
+ <option value="ca">Canada</option>
+ <option value="uk">United Kingdom</option>
+ <option value="in">India</option>
+ </select>
+ </fieldset>
+
+ <!-- Additional Information -->
+ <fieldset>
+ <legend>Additional Information</legend>
+
+ <label for="bio">Bio:</label>
+ <textarea id="bio" name="bio" rows="4"
+ placeholder="Tell us about yourself..."></textarea>
+
+ <label for="profile-picture">Profile Picture:</label>
+ <input type="file" id="profile-picture" name="profile-picture"
+ accept="image/*">
+
+ <label for="skills">Skills (hold Ctrl to select multiple):</label>
+ <select id="skills" name="skills" multiple>
+ <option value="html">HTML</option>
+ <option value="css">CSS</option>
+ <option value="javascript">JavaScript</option>
+ <option value="python">Python</option>
+ <option value="java">Java</option>
+ </select>
+ <label for="experience">Years of Experience:</label>
+ <input type="range" id="experience" name="experience"
+ min="0" max="20" value="0">
+ <span id="exp-value">0 years</span>
+ </fieldset>
+
+ <!-- Terms and Submit -->
+ <label>
+ <input type="checkbox" name="newsletter" value="yes">
+ Subscribe to our newsletter
+ </label>
+
+ <label>
+ <input type="checkbox" name="terms" value="accepted" required>
+ I agree to the <a href="terms.html">Terms and Conditions</a>
+ </label>
+
+ <button type="submit">Register</button>
+ <button type="reset">Clear Form</button>
+ </form>
+
+ <script>
+ // Update experience range display
+ const experienceRange = document.getElementById('experience');
+ const expValue = document.getElementById('exp-value');
+
+ experienceRange.addEventListener('input', function() {
+ expValue.textContent = this.value + ' years';
+ });
+ </script>
+</body>
+</html>
